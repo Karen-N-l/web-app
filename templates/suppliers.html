@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <section class="products-section">
+    <div class="products-section-container">
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Delete</th>
+          <th>Update</th>
+        </tr>
+        {% for supplier in suppliers %}
+          <tr>
+            <td>{{ supplier.sup_name }}</td>
+            <td>{{ supplier.sup_product }}</td>
+            <td>{{ supplier.sup_price }}</td>
+            <td><a href="/delete-supplier/{{ supplier.id }}">Delete</a></td>
+            <td><a href="/update-supplier/{{ supplier.id }}">Update</a></td>
+          </tr>
+        {% endfor %}
+
+      </table>
+
+    </div>
+
+  </section>
+
+{% endblock %}
+
